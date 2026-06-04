@@ -1,4 +1,7 @@
+
 # Payment Checkout Microservices
+
+[![Python CI Application](https://github.com/annalahmaniuk/payment-checkout-microservices/actions/workflows/python-app.yml/badge.svg)](https://github.com/annalahmaniuk/payment-checkout-microservices/actions/workflows/python-app.yml)
 
 ## Опис проєкту
 
