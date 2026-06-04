@@ -1,0 +1,38 @@
+name: Python CI Application
+
+on:
+  push:
+    branches:
+      - main
+      - feature-cicd-pipeline
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install flake8
+        run: |
+          pip install flake8
+
+      - name: Run flake8
+        run: |
+          flake8 .
+
+      - name: Secret demo
+        env:
+          SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET_KEY }}
+        run: |
+          echo "Secret value: $SUPER_SECRET"
