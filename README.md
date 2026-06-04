@@ -1,19 +1,15 @@
 # Payment Checkout Microservices
 
-## CI/CD Status
+## Опис проєкту
 
-GitHub Actions workflow is configured to run flake8 and API tests automatically on every push and pull request.
+Проєкт демонструє мікросервісну архітектуру з використанням FastAPI, Docker, Docker Compose та GitHub Actions.
 
-## Project Description
-
-This project demonstrates a microservice architecture using FastAPI, Docker, Docker Compose and GitHub Actions.
-
-The system consists of two services:
+Система складається з двох сервісів:
 
 - checkout_service
 - payment_gateway
 
-## Features
+## Функціональність
 
 ### Checkout Service
 
@@ -25,7 +21,7 @@ The system consists of two services:
 - GET /payments
 - POST /payments
 
-## Technologies
+## Використані технології
 
 - Python 3.10
 - FastAPI
@@ -35,33 +31,35 @@ The system consists of two services:
 - Flake8
 - Newman
 
-## Project Structure
+## Структура проєкту
 
-```text
 .github/workflows/
 checkout_service/
 payment_gateway/
 docker-compose.yml
 README.md
-```
 
-## Docker
+## Контейнеризація
 
-Both services are containerized using Docker and launched together through Docker Compose.
+Кожен сервіс має власний Dockerfile та запускається у контейнері Docker.
 
-## CI/CD Pipeline
+## Оркестрація
 
-The GitHub Actions workflow automatically:
+Сервіси запускаються за допомогою docker-compose.yml. Для сервісу-залежності використовується директива depends_on.
 
-1. Runs flake8 linting
-2. Builds services
-3. Executes Newman API tests
+## CI/CD
 
-## Personalization
+GitHub Actions автоматично виконує:
 
-Student number: 2
+- перевірку коду через flake8;
+- запуск тестів Newman;
+- перевірку pull request та push.
 
-- Checkout Service Port: 8002
-- Payment Gateway Port: 9002
-- Object IDs start from 200
-- All JSON responses include `"student_id": 2`
+## Персоналізація
+
+Номер студента: 2
+
+- Порт checkout_service: 8002
+- Порт payment_gateway: 9002
+- Початкові ID об'єктів: 200
+- Усі JSON-відповіді містять поле `"student_id": 2`
